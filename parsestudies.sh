@@ -8,7 +8,8 @@ process_accession() {
     cd "${accession}"
     rm "${accession}.sra"
     cd ..
-    mv "${accession}"_1.fastq "${project_folder}"
+    mv "${accession}".fastq "${project_folder}" 2>/dev/null || :
+    mv "${accession}"_1.fastq "${project_folder}" 2>/dev/null || :
     mv "${accession}"_2.fastq "${project_folder}" 2>/dev/null || :
     rmdir "${accession}" 2>/dev/null || :
 }
